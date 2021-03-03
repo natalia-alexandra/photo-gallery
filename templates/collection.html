@@ -1,0 +1,19 @@
+<section class="collection">
+    <h2>explore collection by scrolling down</h2>
+    <div class="collectionBx">
+        {% for img in collection.all %}
+        <div class="box">
+            <div class="imgBx">
+                <div class="imgArounder">
+                    <img src="{{img.images.url}}" alt="{{img.alt}}">
+                </div>
+                <p class="close">click again to close</p>
+                <div class="content">
+                    <h3>{{img.title}}</h3>
+                    <p>{{img.description}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
