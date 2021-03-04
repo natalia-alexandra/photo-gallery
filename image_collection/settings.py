@@ -30,7 +30,7 @@ SECRET_KEY = '#-2vg(+nt#h#=@ot!0s@dv4j4xtjj(-2((@87q(g6xxv%8s%d9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'photo-collection-gallery.herokuapp.com']
+ALLOWED_HOSTS = ['photo-collection-gallery.herokuapp.com', 'localhost']
 
 
 # Application definition
