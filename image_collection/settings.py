@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import django_heroku
+# import django_heroku
 # from pathlib import Path
 import os
 from decouple import config
@@ -19,8 +19,8 @@ from decouple import config
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # django_heroku.settings(locals())
-django_heroku.settings(config=locals(), staticfiles=False, logging=False)
-logging = False
+# django_heroku.settings(config=locals(), staticfiles=False, logging=False)
+# logging = False
 DISABLE_COLLECTSTATIC = 1
 
 # Quick-start development settings - unsuitable for production
@@ -32,23 +32,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['photo-collection-gallery.herokuapp.com', 'localhost']
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
-        },
-    },
-}
+ALLOWED_HOSTS = ['photo-collection-gallery.herokuapp.com',
+                 'localhost', '127.0.0.1', '0.0.0.0']
 
 # Application definition
 
@@ -99,8 +84,12 @@ WSGI_APPLICATION = 'image_collection.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('HOST'),
+        'PORT': '5432',
     }
 }
 
