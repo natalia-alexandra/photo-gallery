@@ -21,6 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # django_heroku.settings(locals())
 # django_heroku.settings(config=locals(), staticfiles=False, logging=False)
 # logging = False
+DEBUG_COLLECTSTATIC = 1
 DISABLE_COLLECTSTATIC = 1
 
 # Quick-start development settings - unsuitable for production
@@ -131,10 +132,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'image_collection/static/'), ]
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
