@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 # from pathlib import Path
 import os
 from decouple import config
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -82,6 +83,11 @@ WSGI_APPLICATION = 'image_collection.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+DATABASES = {
+    # 'default': dj_database_url.config()
+    'default': dj_database_url.parse('postgres://wsuypszkpsglqt:0e6afb77fbc3d2ff32ab496da9286725a1caafd1872c6c0d0a659ccae816f400@ec2-34-255-134-200.eu-west-1.compute.amazonaws.com:5432/d4g96o373iokm9')
+}
 
 DATABASES = {
     'default': {
